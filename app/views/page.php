@@ -10,15 +10,15 @@ $isHomepage = false;
 ?>
 
 <?php include 'header.php'; ?>
-    
-<div class="container" data-wio-id=<?= $pageContent->getId() ?>>
-  <?php 
+
+<div class="container" data-wio-id=<?= $pajgeContent->getId() ?>>
+  <?php
     // If there are any slices
     if ( $pageContent->getSliceZone('page.page_content') !== null ) {
-      
+
       // Display the slices
       foreach ( $pageContent->getSliceZone('page.page_content')->getSlices() as $slice ) {
-        
+
         //- Render the right markup for a given slice type.
         switch($slice->getSliceType()) {
           case 'text_section':
@@ -38,7 +38,7 @@ $isHomepage = false;
             break;
         }
       }
-    } 
+    }
   ?>
 </div>
 

@@ -21,4 +21,4 @@ define('SITE_DESCRIPTION', 'gutes und besseres');
 /*
  * Set to true to display error details
  */
-define('DISPLAY_ERROR_DETAILS', false);
+define('DISPLAY_ERROR_DETAILS', true);
