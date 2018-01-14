@@ -9,5 +9,33 @@ if ( $slice->getLabel() ) {
 ?>
 
 <section class="content-section <?= $sectionClass ?>">
-  <?= $slice->getPrimary()->getStructuredText('rich_text')->asHtml(); ?>
+  <p class="lead">
+
+  </p>
+</section>
+
+
+<section class="main-container content-section <?= $sectionClass ?>">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- main start -->
+      <!-- ================ -->
+      <div class="main col-12">
+
+        <!-- page-title start -->
+        <!-- ================ -->
+        <h1 class="page-title">Page No Sidebars</h1>
+        <div class="separator-2"></div>
+        <!-- page-title end -->
+        <p>
+          <?= $slice->getPrimary()->getStructuredText('rich_text')->asHtml(); ?>
+        </p>
+
+      </div>
+      <!-- main end -->
+
+    </div>
+  </div>
 </section>

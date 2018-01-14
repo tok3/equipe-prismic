@@ -15,7 +15,7 @@ define('PRISMIC_TOKEN', null);
 /*
  * Your site metadata
  */
-define('SITE_TITLE', 'equipetripledoublew - eq3w');
+define('SITE_TITLE', 'equipe www - eq3w');
 define('SITE_DESCRIPTION', 'gutes und besseres');
 
 /*

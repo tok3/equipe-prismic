@@ -20,48 +20,58 @@ use Prismic\Predicates;
 require_once 'includes/http.php';
 
 // Index page
-$app->get('/', function ($request, $response) use ($app, $prismic) {
-  
-  $api = $prismic->get_api();
-  
-  $pageContent = $api->getSingle('homepage');
-  if (!$pageContent) {
-    include '../app/includes/templates/firstrun.php';
-    return;
-  }
-  
-  $menuContent = $api->getSingle('menu');
-  if (!$menuContent) {
-    $menuContent = null;
-  }
-  
-  render($app, 'homepage', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
+$app->get('/', function ($request, $response) use ($app, $prismic)
+{
+
+    $api = $prismic->get_api();
+
+    $pageContent = $api->getSingle('homepage');
+    if (!$pageContent)
+    {
+        include '../app/includes/templates/firstrun.php';
+
+        return;
+    }
+
+    $menuContent = $api->getSingle('menu');
+    if (!$menuContent)
+    {
+        $menuContent = null;
+    }
+
+    render($app, 'homepage', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
 });
 
 // Previews
-$app->get('/preview', function ($request, $response) use ($app, $prismic) {
-  $token = $request->getParam('token');
-  $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
-  setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
-  return $response->withStatus(302)->withHeader('Location', $url);
+$app->get('/preview', function ($request, $response) use ($app, $prismic)
+{
+    $token = $request->getParam('token');
+    $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
+    setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
+
+    return $response->withStatus(302)->withHeader('Location', $url);
 });
 
 // Index page
-$app->get('/{uid}', function ($request, $response, $args) use ($app, $prismic) {
-  
-  // Retrieve the uid from the url
-  $uid = $args['uid'];
-  
-  // Query the API by the uid
-  $api = $prismic->get_api();
-  $pageContent = $api->getByUID('page', $uid);
-  if (!$pageContent) {
-    render($app, '404', array('pageContent' => null, 'menuContent' => null));
-    return;
-  }
-  
-  $menuContent = $api->getSingle('menu');
-  
-  render($app, 'page', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
+$app->get('/{uid}', function ($request, $response, $args) use ($app, $prismic)
+{
+
+    // Retrieve the uid from the url
+    $uid = $args['uid'];
+
+    // Query the API by the uid
+    $api = $prismic->get_api();
+    $pageContent = $api->getByUID('page', $uid);
+
+    if (!$pageContent)
+    {
+        render($app, '404', array('pageContent' => null, 'menuContent' => null));
+
+        return;
+    }
+
+    $menuContent = $api->getSingle('menu');
+
+    render($app, 'page', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
 });
 
