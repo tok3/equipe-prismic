@@ -11,7 +11,7 @@ $isHomepage = false;
 
 <?php include 'header.php'; ?>
 
-<div class="container" data-wio-id=<?= $pajgeContent->getId() ?>>
+<div class="container" data-wio-id=<?= $pageContent->getId() ?>>
   <?php
     // If there are any slices
     if ( $pageContent->getSliceZone('page.page_content') !== null ) {

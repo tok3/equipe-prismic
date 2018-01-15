@@ -238,15 +238,15 @@ if (!isset($isHomepage))
                                             // if the navigation is set up in prismic.io
                                             if ($menuContent != null)
                                             {
-                                            // loop through each menu item
-                                            foreach ($menuContent->getGroup('menu.menu_links')->getArray() as $link)
-                                            {
+                                                // loop through each menu item
+                                                foreach ($menuContent->getGroup('menu.menu_links')->getArray() as $link)
+                                                {
 
 
-
-                                            ?>
-                                            <li class="nav-item"><a href="<?= $link->getLink("link")->getUrl($prismic->linkResolver) ?>"  class="nav-link"><?= $link->getText("label") ?></a></li>
-                                            <?php }
+                                                    ?>
+                                                    <li class="nav-item"><a href="<?= $link->getLink("link")->getUrl($prismic->linkResolver) ?>" class="nav-link"><?= $link->getText("label") ?></a>
+                                                    </li>
+                                                <?php }
                                             } ?>
 
 
