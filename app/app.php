@@ -26,6 +26,8 @@ $app->get('/', function ($request, $response) use ($app, $prismic)
     $api = $prismic->get_api();
 
     $pageContent = $api->getSingle('homepage');
+
+
     if (!$pageContent)
     {
         include '../app/includes/templates/firstrun.php';
@@ -42,6 +44,35 @@ $app->get('/', function ($request, $response) use ($app, $prismic)
     render($app, 'homepage', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
 });
 
+// blog home
+$app->get('/artikel', function ($request, $response) use ($app, $prismic)
+{
+
+    $api = $prismic->get_api();
+
+    //$pageContent = $api->getSingle('blog_home');
+    $pageContent = $api->getSingle('blog_home');
+
+    $response = $api->query(Predicates::at('document.type', 'blog_home'));
+
+
+    if (!$pageContent)
+    {
+        include '../app/includes/templates/firstrun.php';
+
+        return;
+    }
+
+    $menuContent = $api->getSingle('menu');
+    if (!$menuContent)
+    {
+        $menuContent = null;
+    }
+
+    render($app, 'bloghome', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
+});
+
+
 // Previews
 $app->get('/preview', function ($request, $response) use ($app, $prismic)
 {
@@ -52,7 +83,7 @@ $app->get('/preview', function ($request, $response) use ($app, $prismic)
     return $response->withStatus(302)->withHeader('Location', $url);
 });
 
-// Index page
+//  page
 $app->get('/{uid}', function ($request, $response, $args) use ($app, $prismic)
 {
 

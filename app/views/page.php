@@ -8,10 +8,9 @@ $title = SITE_TITLE;
 $isHomepage = false;
 
 ?>
-
 <?php include 'header.php'; ?>
 
-<div class="container" data-wio-id=<?= $pageContent->getId() ?>>
+<section data-wio-id=<?= $pageContent->getId() ?>>
   <?php
     // If there are any slices
     if ( $pageContent->getSliceZone('page.page_content') !== null ) {
@@ -40,6 +39,7 @@ $isHomepage = false;
       }
     }
   ?>
-</div>
+
+</section>
 
 <?php include 'footer.php'; ?>

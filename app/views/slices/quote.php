@@ -12,10 +12,12 @@
         <div class="call-to-action text-center">
           <div class="row">
             <div class="col-md-12">
+
               <blockquote>
-                <?= $slice->getPrimary()->getText('quote_text');?>
+                <p> <?= $slice->getPrimary()->getText('quote_text');?></p>
+                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
               </blockquote>
-               </div>
+            </div>
           </div>
         </div>
       </div>

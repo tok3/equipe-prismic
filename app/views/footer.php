@@ -1,7 +1,7 @@
 <!-- footer top end -->
 <!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
 <!-- ================ -->
-<footer id="footer" class="clearfix dark">
+<footer id="footer" class="clearfix light">
 
     <!-- .footer start -->
     <!-- ================ -->

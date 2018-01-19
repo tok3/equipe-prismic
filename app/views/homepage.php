@@ -7,6 +7,9 @@ $menuContent = $WPGLOBAL['menuContent'];
 $title = SITE_TITLE;
 $isHomepage = true;
 
+
+
+
 ?>
 
 <?php include 'header.php'; ?>
@@ -31,15 +34,15 @@ $isHomepage = true;
 -->
 
 
+<section  data-wio-id=<?= $pageContent->getId() ?>>
+  <?php
 
-<div class="container"  data-wio-id=<?= $pageContent->getId() ?>>
-  <?php 
     // If there are any slices
     if ( $pageContent->getSliceZone('homepage.page_content') !== null ) {
       
       // Display the slices
       foreach ( $pageContent->getSliceZone('homepage.page_content')->getSlices() as $slice ) {
-        
+
         //- Render the right markup for a given slice type.
         switch($slice->getSliceType()) {
           case 'text_section':
@@ -58,12 +61,15 @@ $isHomepage = true;
             include("slices/highlight.php");
             break;
           case 'revolution':
-            include("slices/revolution.php");
+            //include("slices/revolution.php");
+            break;
+          case 'cta_blocks':
+            include("slices/cta_blocks.php");
             break;
         }
       }
     } 
   ?>
-</div>
+</section>
 
 <?php include 'footer.php'; ?>

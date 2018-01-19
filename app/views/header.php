@@ -15,7 +15,6 @@ if (!isset($isHomepage))
 
 ?>
 
-
 <!--neue -->
 
 <!DOCTYPE html>
@@ -183,13 +182,14 @@ if (!isset($isHomepage))
                         <div class="header-first clearfix">
 
                             <!-- logo -->
-                            <div id="logo" class="logo">
-                                <a href="index.html"><img id="logo_img" src="images/logo_light_blue.png" alt="The Project"></a>
+                            <div id="logo" class="logo logo-font">
+                                <!--<a href="index.html"><img id="logo_img" src="images/logo_light_blue.png" alt="The Project"></a>-->
+                                <a href="/">Eq<sup>3<sub>w</sub></sup></a>
                             </div>
 
                             <!-- name-and-slogan -->
                             <div class="site-slogan">
-                                Multipurpose HTML5 Template
+                                equipe.www
                             </div>
 
                         </div>
@@ -241,7 +241,6 @@ if (!isset($isHomepage))
                                                 // loop through each menu item
                                                 foreach ($menuContent->getGroup('menu.menu_links')->getArray() as $link)
                                                 {
-
 
                                                     ?>
                                                     <li class="nav-item"><a href="<?= $link->getLink("link")->getUrl($prismic->linkResolver) ?>" class="nav-link"><?= $link->getText("label") ?></a>
