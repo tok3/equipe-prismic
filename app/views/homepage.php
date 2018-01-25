@@ -61,7 +61,7 @@ $isHomepage = true;
             include("slices/highlight.php");
             break;
           case 'revolution':
-            //include("slices/revolution.php");
+            include("slices/revolution.php");
             break;
           case 'cta_blocks':
             include("slices/cta_blocks.php");

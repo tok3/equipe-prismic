@@ -176,7 +176,7 @@
             <div class="subfooter-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-center">Copyright © 2017 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
+                        <p class="text-center">Copyright © <?=date('Y',time());?> Equipe<sup>3<sub>w</sub></sup>. Alle Rechte vorbehalten</p>
                     </div>
                 </div>
             </div>

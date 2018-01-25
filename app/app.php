@@ -19,6 +19,7 @@ use Prismic\Predicates;
 
 require_once 'includes/http.php';
 
+/* ---------------------------------------------------------- */
 // Index page
 $app->get('/', function ($request, $response) use ($app, $prismic)
 {
@@ -44,35 +45,33 @@ $app->get('/', function ($request, $response) use ($app, $prismic)
     render($app, 'homepage', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
 });
 
-// blog home
-$app->get('/artikel', function ($request, $response) use ($app, $prismic)
-{
 
+/* ---------------------------------------------------------- */
+// Blog/Article Index page
+$app->get('/artikel{route:|artikel|artikel/}', function ($request, $response) use ($app, $prismic) {
+
+    // Query the API for the homepage content and all the posts
     $api = $prismic->get_api();
-
-    //$pageContent = $api->getSingle('blog_home');
     $pageContent = $api->getSingle('blog_home');
 
-    $response = $api->query(Predicates::at('document.type', 'blog_home'));
+    $posts = $api->query(
+        Predicates::at("document.type", "post"),
+        [ 'orderings' => '[my.post.date desc]']
+    );
 
-
-    if (!$pageContent)
-    {
-        include '../app/includes/templates/firstrun.php';
-
+    // If there is no bloghome content, display 404 page
+    if ( $pageContent == null ) {
+        not_found($app);
         return;
     }
 
     $menuContent = $api->getSingle('menu');
-    if (!$menuContent)
-    {
-        $menuContent = null;
-    }
-
-    render($app, 'bloghome', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
+    // Render blog/artikle index-page
+    render($app, 'bloghome', array('pageContent' => $pageContent, 'menuContent' => $menuContent, 'posts' => $posts->getResults()));
 });
 
 
+/* ---------------------------------------------------------- */
 // Previews
 $app->get('/preview', function ($request, $response) use ($app, $prismic)
 {
@@ -83,7 +82,9 @@ $app->get('/preview', function ($request, $response) use ($app, $prismic)
     return $response->withStatus(302)->withHeader('Location', $url);
 });
 
-//  page
+
+/* ---------------------------------------------------------- */
+//  Page
 $app->get('/{uid}', function ($request, $response, $args) use ($app, $prismic)
 {
 
@@ -106,3 +107,23 @@ $app->get('/{uid}', function ($request, $response, $args) use ($app, $prismic)
     render($app, 'page', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
 });
 
+
+// Pages by UID
+$app->get('/artikel/{uid}', function ($request, $response, $args) use ($app, $prismic) {
+
+    // Retrieve the uid from the url
+    $uid = $args['uid'];
+
+    // Query the API by the uid
+    $api = $prismic->get_api();
+    $post = $api->getByUID('post', $uid);
+
+    // If there is no post content, display the 404 page
+    if (!$post) {
+        not_found($app);
+        return;
+    }
+    $menuContent = $api->getSingle('menu');
+    // Render the post page
+    render($app, 'post', array('post' => $post, 'menuContent' => $menuContent));
+});

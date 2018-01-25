@@ -20,11 +20,19 @@ class PrismicLinkResolver extends LinkResolver
 
   public function resolve($link)
   {
-    // For pages
-    if ($link->getType() == 'page') {
+    // For pages and blog home
+    if ($link->getType() == 'page' || $link->getType() == 'blog_home') {
+
       return '/' . $link->getUid();
+
     }
-    
+
+    // Post custom type
+    if ($link->getType() == 'post') {
+      return '/artikel/' . $link->getUid();
+    }
+
+
     // Default case returns the homepage
     return '/';
   }

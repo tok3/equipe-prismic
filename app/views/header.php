@@ -45,39 +45,39 @@ if (!isset($isHomepage))
     <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
-    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Fontello CSS -->
-    <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
+    <link href="/fonts/fontello/css/fontello.css" rel="stylesheet">
 
     <!-- Plugins -->
-    <link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="plugins/rs-plugin-5/css/settings.css" rel="stylesheet">
-    <link href="plugins/rs-plugin-5/css/layers.css" rel="stylesheet">
-    <link href="plugins/rs-plugin-5/css/navigation.css" rel="stylesheet">
-    <link href="css/animations.css" rel="stylesheet">
-    <link href="plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
-    <link href="plugins/hover/hover-min.css" rel="stylesheet">
-    <link href="plugins/morphext/morphext.css" rel="stylesheet">
+    <link href="/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/plugins/rs-plugin-5/css/settings.css" rel="stylesheet">
+    <link href="/plugins/rs-plugin-5/css/layers.css" rel="stylesheet">
+    <link href="/plugins/rs-plugin-5/css/navigation.css" rel="stylesheet">
+    <link href="/css/animations.css" rel="stylesheet">
+    <link href="/plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/plugins/hover/hover-min.css" rel="stylesheet">
+    <link href="/plugins/morphext/morphext.css" rel="stylesheet">
 
     <!-- The Project's core CSS file -->
     <!-- Use css/rtl_style.css for RTL version -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <!-- The Project's Typography CSS file, includes used fonts -->
     <!-- Used font for body: Roboto -->
     <!-- Used font for headings: Raleway -->
     <!-- Use css/rtl_typography-default.css for RTL version -->
-    <link href="css/typography-default.css" rel="stylesheet">
+    <link href="/css/typography-default.css" rel="stylesheet">
     <!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-    <link href="css/skins/light_blue.css" rel="stylesheet">
+    <link href="/css/skins/light_blue.css" rel="stylesheet">
 
 
     <!-- Custom css -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <? /* Required for previews and experiments */ ?>
@@ -111,58 +111,7 @@ if (!isset($isHomepage))
         <!-- "dark": dark version of header top e.g. class="header-top dark" -->
         <!-- "colored": colored version of header top e.g. class="header-top colored" -->
         <!-- ================ -->
-        <div class="header-top dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2 col-md-5">
-                        <!-- header-top-first start -->
-                        <!-- ================ -->
-                        <div class="header-top-first clearfix">
-                            <ul class="social-links circle small clearfix hidden-sm-down">
-                                <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
-                                <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-                                <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                                <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
-                                <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
-                                <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                <li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                            <div class="social-links hidden-md-up circle small">
-                                <div class="btn-group dropdown">
-                                    <button id="header-top-drop-1" type="button" class="btn dropdown-toggle dropdown-toggle--no-caret" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false"><i class="fa fa-share-alt"></i></button>
-                                    <ul class="dropdown-menu dropdown-animation" aria-labelledby="header-top-drop-1">
-                                        <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
-                                        <li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-                                        <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
-                                        <li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>
-                                        <li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- header-top-first end -->
-                    </div>
-                    <div class="col-10 col-md-7">
 
-                        <!-- header-top-second start -->
-                        <!-- ================ -->
-                        <div id="header-top-second" class="clearfix text-right">
-                            <ul class="list-inline">
-                                <li class="list-inline-item"><i class="fa fa-phone pr-1 pl-10"></i>+12 123 123 123</li>
-                                <li class="list-inline-item"><i class="fa fa-envelope-o pr-1 pl-10"></i> theproject@mail.com</li>
-                            </ul>
-                        </div>
-                        <!-- header-top-second end -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- header-top end -->
 
         <!-- header start -->
@@ -183,8 +132,8 @@ if (!isset($isHomepage))
 
                             <!-- logo -->
                             <div id="logo" class="logo logo-font">
-                                <!--<a href="index.html"><img id="logo_img" src="images/logo_light_blue.png" alt="The Project"></a>-->
-                                <a href="/">Eq<sup>3<sub>w</sub></sup></a>
+                                <!--<a href="/index.html"><img id="logo_img" src="images/logo_light_blue.png" alt="The Project"></a>-->
+                                <a href="//">Eq<sup>3<sub>w</sub></sup></a>
                             </div>
 
                             <!-- name-and-slogan -->
@@ -217,13 +166,15 @@ if (!isset($isHomepage))
                                     <div class="navbar-brand clearfix hidden-lg-up">
 
                                         <!-- logo -->
-                                        <div id="logo-mobile" class="logo">
-                                            <a href="index.html"><img id="logo-img-mobile" src="images/logo_light_blue.png" alt="The Project"></a>
+                                        <div id="logo-mobile" class="logo logo-font">
+                                            <a href="/">
+                                                <a href="/">Eq<sup>3<sub>w</sub></sup></a>
+                                            </a>
                                         </div>
 
                                         <!-- name-and-slogan -->
                                         <div class="site-slogan">
-                                            Multipurpose HTML5 Template
+
                                         </div>
 
                                     </div>
