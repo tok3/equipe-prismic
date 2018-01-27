@@ -45,7 +45,8 @@
                                     $thumb = '<div class="d-flex pr-2">
                         <div class="overlay-container">
                           <img class="media-object" src="' . $thumbView->getUrl() . '" alt="blog-thumb">
-                          <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                          <a href="/artikel/' . $document->getUid() . '"  class="overlay-link small">
+                          <i class="fa fa-link"></i></a>
                         </div>
                       </div>';
 
