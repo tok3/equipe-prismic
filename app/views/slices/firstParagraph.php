@@ -6,6 +6,10 @@ $firstParagraph = "";
 
 // Loop through each slice to find the first text slice
 foreach ($sliceZone->getSlices() as $slice) {
+  if ($slice->getSliceType() == "text_section") {
+    $firstParagraph = $slice->getPrimary()->getStructuredText('rich_text')->getFirstParagraph();
+    break;
+  }
   if ($slice->getSliceType() == "text") {
     $firstParagraph = $slice->getPrimary()->getStructuredText('text')->getFirstParagraph();
     break;

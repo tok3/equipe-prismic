@@ -39,13 +39,25 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
 
 
                     <?php foreach ($posts as $post)
-                    { ?>
+                    {
+                        ?>
 
 
                         <!-- masonry grid item start -->
                         <div class="masonry-grid-item col-md-6 col-lg-4 blog-post" data-wio-id=<?= $post->getId() ?>>
 
                             <!-- blogpost start -->
+                            <?php
+                            if (NULL !== $post->getImage("post.post_image"))
+                            {
+
+                                echo '<div class="overlay-container">
+                                <img class="img-responsive" src="'.$post->getImage("post.post_image")->getView('mason')->getUrl().'" alt="">
+                                <a class="overlay-link" href="'. $prismic->linkResolver->resolve($post) .'"><i class="fa fa-link"></i></a>
+                            </div>
+                           ';
+                            }
+?>
                             <article class="blogpost shadow-2 light-gray-bg bordered">
                                 <div class="overlay-container">
                                     <img src="images/blog-1.jpg" alt="">
@@ -73,7 +85,19 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
                                     </p>
                                 </div>
                                 <footer class="clearfix">
-                                    <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+                                    <div class="tags pull-left"><i class="icon-tags"></i>
+                                        <?PHP
+                                        foreach ($post->getTags() as $tag)
+                                        {
+
+                                            echo '<div class="tag">
+                      <a href="#">' . trim($tag) . '</a>
+                    </div>';
+                                        }
+
+                                        ?>
+                                    </div>
+
                                     <div class="link pull-right"><i class="icon-link"></i><a href="<?= $prismic->linkResolver->resolve($post) ?>">Read More</a></div>
                                 </footer>
                             </article>
@@ -82,7 +106,7 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
                         <!-- masonry grid item end -->
 
 
-                         <?php } ?>
+                    <?php } ?>
 
 
                 </div>
@@ -117,4 +141,9 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
         </div>
     </div>
 </section>
-<?php include 'footer.php'; ?>
+
+<?php
+
+echo $WPGLOBAL['faker']->realText($maxNbChars = 1400, $indexSize = rand(1,5));
+
+include 'footer.php'; ?>

@@ -16,7 +16,8 @@ body {
   font-family: "Roboto", sans-serif; }
 
 .logo-font {
-  font-family: "Pacifico", cursive, sans-serif; }
+  font-family: "Pacifico", cursive, sans-serif;
+  font-size: 2em !important; }
 
 /*Typography
 ---------------------------------- */

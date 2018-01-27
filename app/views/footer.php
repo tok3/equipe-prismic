@@ -9,10 +9,12 @@
         <div class="container">
             <div class="footer-inner">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="footer-content">
                             <div class="logo-footer"><img id="logo-footer" src="images/logo_light_blue.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-1"></i></a></p>
+                            <p>Wir sind Experten bei der Erstellung von Websites und Webapps, Front- und Backend Anwendungen von der Konzeption über die Erstellung und Programmierung bis hin zur
+                                Wartung und Pflege von Webseiten, Blogs und anderen digitalen Kommunikationskanälen.</p>
+
                             <div class="separator-2"></div>
                             <nav>
                                 <ul class="nav flex-column">
@@ -24,128 +26,61 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="footer-content">
                             <h2 class="title">Latest From Blog</h2>
+
                             <div class="separator-2"></div>
-                            <div class="media margin-clear">
-                                <div class="d-flex pr-2">
-                                    <div class="overlay-container">
-                                        <img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
-                                        <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
+
+                            <?PHP
+                            foreach ($WPGLOBAL['latestPosts'] as $key => $document)
+                            {
+
+                                $thumb = '';
+                                if (NULL !== $document->getImage("post.post_image"))
+                                {
+
+                                    $thumbView = $document->getImage("post.post_image")->getView('thumb');
+
+                                    $thumb = '<div class="d-flex pr-2">
+                        <div class="overlay-container">
+                          <img class="media-object" src="' . $thumbView->getUrl() . '" alt="blog-thumb">
+                          <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
+                        </div>
+                      </div>';
+
+
+                                }
+                                echo '<div class="media margin-clear">' . $thumb . '
+
+
+
                                 <div class="media-body">
-                                    <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                                    <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 23, 2017</p>
+                                    <h6 class="media-heading"><a href="/artikel/' . $document->getUid() . '">' . $document->getText('post.title') . '</a></h6>
+                                    <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>' . $document->getDate('post.date')->formatted('d. M Y') . '</p>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="media margin-clear">
-                                <div class="d-flex pr-2">
-                                    <div class="overlay-container">
-                                        <img class="media-object" src="images/blog-thumb-2.jpg" alt="blog-thumb">
-                                        <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                                    <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 22, 2017</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="media margin-clear">
-                                <div class="d-flex pr-2">
-                                    <div class="overlay-container">
-                                        <img class="media-object" src="images/blog-thumb-3.jpg" alt="blog-thumb">
-                                        <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                                    <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 21, 2017</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="media margin-clear">
-                                <div class="d-flex pr-2">
-                                    <div class="overlay-container">
-                                        <img class="media-object" src="images/blog-thumb-4.jpg" alt="blog-thumb">
-                                        <a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                                <div class="media-body">
-                                    <h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-                                    <p class="small margin-clear"><i class="fa fa-calendar pr-2"></i>Mar 21, 2017</p>
-                                </div>
-                            </div>
+
+
+                            <hr>';
+
+
+                            }
+
+
+                            ?>
+
+
                             <div class="text-right space-top">
-                                <a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
+                                <a href="/artikel" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="footer-content">
-                            <h2 class="title">Portfolio Gallery</h2>
-                            <div class="separator-2"></div>
-                            <div class="row grid-space-10">
-                                <div class="col-4 col-lg-6">
-                                    <div class="overlay-container mb-10">
-                                        <img src="images/gallery-1.jpg" alt="">
-                                        <a href="portfolio-item.html" class="overlay-link small">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-6">
-                                    <div class="overlay-container mb-10">
-                                        <img src="images/gallery-2.jpg" alt="">
-                                        <a href="portfolio-item.html" class="overlay-link small">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-6">
-                                    <div class="overlay-container mb-10">
-                                        <img src="images/gallery-3.jpg" alt="">
-                                        <a href="portfolio-item.html" class="overlay-link small">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-6">
-                                    <div class="overlay-container mb-10">
-                                        <img src="images/gallery-4.jpg" alt="">
-                                        <a href="portfolio-item.html" class="overlay-link small">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-6">
-                                    <div class="overlay-container mb-10">
-                                        <img src="images/gallery-5.jpg" alt="">
-                                        <a href="portfolio-item.html" class="overlay-link small">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-6">
-                                    <div class="overlay-container mb-10">
-                                        <img src="images/gallery-6.jpg" alt="">
-                                        <a href="portfolio-item.html" class="overlay-link small">
-                                            <i class="fa fa-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-right space-top">
-                                <a href="portfolio-grid-2-3-col.html" class="link-dark"><i class="fa fa-plus-circle pl-1 pr-1"></i>More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
+
+                    <div class="col-lg-4">
                         <div class="footer-content">
                             <h2 class="title">Find Us</h2>
+
                             <div class="separator-2"></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
                             <ul class="social-links circle animated-effect-1">
@@ -176,7 +111,7 @@
             <div class="subfooter-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-center">Copyright © <?=date('Y',time());?> Equipe<sup>3<sub>w</sub></sup>. Alle Rechte vorbehalten</p>
+                        <p class="text-center">Copyright © <?= date('Y', time()); ?> Equipe<sup>3<sub>w</sub></sup>. Alle Rechte vorbehalten</p>
                     </div>
                 </div>
             </div>

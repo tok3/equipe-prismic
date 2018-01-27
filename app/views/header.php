@@ -133,7 +133,7 @@ if (!isset($isHomepage))
                             <!-- logo -->
                             <div id="logo" class="logo logo-font">
                                 <!--<a href="/index.html"><img id="logo_img" src="images/logo_light_blue.png" alt="The Project"></a>-->
-                                <a href="//">Eq<sup>3<sub>w</sub></sup></a>
+                                <a href="/">Eq<sup>3<sub>w</sub></sup></a>
                             </div>
 
                             <!-- name-and-slogan -->
@@ -221,3 +221,4 @@ if (!isset($isHomepage))
             </div>
         </header>
         <!-- header end -->
+

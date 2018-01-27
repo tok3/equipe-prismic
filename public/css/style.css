@@ -214,7 +214,8 @@ tbody {
   padding-top: 100px; }
 
 .main-container {
-  padding: 50px 0; }
+  padding: 15px 0;
+  padding-bottom: 10px !important; }
 
 .block {
   margin-bottom: 50px; }
@@ -6858,5 +6859,7 @@ h6.media-heading {
   color: #ffffff; }
 
 /*# sourceMappingURL=style.css.map */
+.img-responsive {
+  width: 100% !important; }
 
 /*# sourceMappingURL=style.css.map */

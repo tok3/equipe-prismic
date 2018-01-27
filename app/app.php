@@ -19,9 +19,30 @@ use Prismic\Predicates;
 
 require_once 'includes/http.php';
 
+
+
+$WPGLOBAL['faker'] = \Faker\Factory::create('de_DE');
+
+
+
+$api = Api::get(PRISMIC_URL);
+
+$response = $api->query(
+
+    Predicates::any('document.type', ['post'])
+
+);
+
+$latestPosts = $response->getResults();
+
+$WPGLOBAL['latestPosts'] = $latestPosts;
+//$latestPosts = $response->getResults();
+
+// $latestPosts[0]->getText('post.title');
+
 /* ---------------------------------------------------------- */
 // Index page
-$app->get('/', function ($request, $response) use ($app, $prismic)
+$app->get('/', function ($request, $response) use ($app, $prismic,$latestPosts)
 {
 
     $api = $prismic->get_api();
@@ -41,8 +62,8 @@ $app->get('/', function ($request, $response) use ($app, $prismic)
     {
         $menuContent = null;
     }
-
-    render($app, 'homepage', array('pageContent' => $pageContent, 'menuContent' => $menuContent));
+    $latest = 'funky';
+    render($app, 'homepage', array('pageContent' => $pageContent, 'menuContent' => $menuContent, 'latest'=>$latest));
 });
 
 

@@ -4,6 +4,7 @@ $prismic = $WPGLOBAL['prismic'];
 $pageContent = $WPGLOBAL['pageContent'];
 $menuContent = $WPGLOBAL['menuContent'];
 
+
 $title = SITE_TITLE;
 $isHomepage = true;
 
@@ -37,6 +38,7 @@ $isHomepage = true;
 <section  data-wio-id=<?= $pageContent->getId() ?>>
   <?php
 
+  
     // If there are any slices
     if ( $pageContent->getSliceZone('homepage.page_content') !== null ) {
       

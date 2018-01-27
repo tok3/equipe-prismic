@@ -21,6 +21,7 @@ $isBloghome = false;
             <!-- ================ -->
             <div class="main col-lg-12">
 
+
                 <!-- page-title start -->
                 <!-- ================ -->
                 <h1 class="page-title"><?= $post->getText('post.title') ? $post->getText('post.title') : "Untitled" ?></h1>
@@ -31,11 +32,39 @@ $isBloghome = false;
                 <article class="blogpost full">
 
                     <div class="blogpost-content">
-                        <?= $post->getText('post.title-2') ? '<h3 class="my-4" data-wio-id=' . $post->getId() . '>' . $post->getText('post.title-2') . '</h3>' : "" ?>
+
+
+                        <?php
+                        if (NULL !== $post->getImage("post.post_image"))
+                        {
+
+                            $mainView = $post->getImage("post.post_image")->getView('main');
+                            $tabletView = $post->getImage("post.post_image")->getView('tablet');
+                            $mobileView = $post->getImage("post.post_image")->getView('mobile');
+                            $thumbView = $post->getImage("post.post_image")->getView('thumb');
+                            ?>
+                            <div class="overlay-container">
+
+                                <picture>
+                                    <source media="(max-width: 400px)" , srcset="<?= $mobileView->getUrl() ?>"/>
+                                    <source media="(max-width: 900px)" , srcset="<?= $tabletView->getUrl() ?>"/>
+                                    <source srcset="<?= $mainView->getUrl() ?>"/>
+                                    <image src="<?= $mainView->getUrl() ?>"/>
+                                </picture>
+                                <a class="overlay-link popup-img" href="images/blog-1.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                            <?PHP
+
+                        }
+
+                        echo $post->getText('post.title-2') ? '<h3 class="my-4" data-wio-id=' . $post->getId() . '>' . $post->getText('post.title-2') . '</h3>' : "" ?>
+
+
 
                         <?php
 
-                        if(NULL!== $post->getText('post.lead_text')){
+                        if (NULL !== $post->getText('post.lead_text'))
+                        {
 
                             echo '<p class="large">' . $post->getText('post.lead_text') . '</p>';
                         }
@@ -51,8 +80,8 @@ $isBloghome = false;
                             {
 
                                 // Text slice
-                                case "text":
-                                    include 'slices/text.php';
+                                case 'text_section':
+                                    include("slices/text-section-post.php");
                                     break;
 
                                 // Quote slice
@@ -73,7 +102,14 @@ $isBloghome = false;
                         ?>
                     </div>
                     <footer class="clearfix">
-                        <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+                        <div class="tags pull-left"><i class="icon-tags"></i> <?PHP
+                            foreach ($post->getTags() as $tag)
+                            {
+
+                                echo '<div class="tag"><a href="#">' . trim($tag) . '</a></div> ';
+                            }
+
+                            ?></div>
                         <div class="link pull-right">
                             <ul class="social-links circle small colored clearfix margin-clear text-right animated-effect-1">
                                 <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
@@ -86,17 +122,12 @@ $isBloghome = false;
                 <!-- blogpost end -->
 
 
-
             </div>
             <!-- main end -->
-
 
 
         </div>
     </div>
 </section>
-
-
-
 
 <?php include 'footer.php'; ?>
