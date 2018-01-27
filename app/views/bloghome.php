@@ -144,6 +144,6 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
 
 <?php
 
-echo $WPGLOBAL['faker']->realText($maxNbChars = 1400, $indexSize = rand(1,5));
+//echo $WPGLOBAL['faker']->realText($maxNbChars = 1400, $indexSize = rand(1,5));
 
 include 'footer.php'; ?>
