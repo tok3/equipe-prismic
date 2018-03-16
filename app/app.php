@@ -31,8 +31,8 @@ $api = Api::get(PRISMIC_URL);
 $response = $api->query(
 
     Predicates::at('document.type', 'post'),
-    [ 'pageSize' => 5, 'page' => 1 ],
-    [ 'orderings' => '[my.post.date desc]']
+    [ 'pageSize' => 5, 'page' => 1 ,
+     'orderings' => '[my.post.date desc]']
 
 );
 
@@ -82,7 +82,7 @@ $app->get('/artikel{route:|artikel|artikel/}', function ($request, $response) us
     $posts = $api->query(
         Predicates::at("document.type", "post"),
         [ 'orderings' => '[my.post.date desc]',
-         'pageSize' => 3, 'page' => 1 ]
+         'pageSize' => 10, 'page' => 1 ]
     );
 
     // If there is no bloghome content, display 404 page

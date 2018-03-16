@@ -35,6 +35,10 @@ $isHomepage = false;
           case 'image_highlight':
             include("slices/highlight.php");
             break;
+          // Image slice
+          case "image_with_caption":
+            include 'slices/image.php';
+            break;
         }
       }
     }

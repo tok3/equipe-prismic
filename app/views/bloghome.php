@@ -122,10 +122,10 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
                             </a>
                         </li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <!--<li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>-->
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <i aria-hidden="true" class="fa fa-angle-right"></i>
@@ -144,6 +144,6 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
 
 <?php
 
-//echo $WPGLOBAL['faker']->realText($maxNbChars = 1400, $indexSize = rand(1,5));
+echo $WPGLOBAL['faker']->realText($maxNbChars = 1400, $indexSize = rand(1,5));
 
 include 'footer.php'; ?>

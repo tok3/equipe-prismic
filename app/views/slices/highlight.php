@@ -4,20 +4,21 @@ $highlightHeadline = $slice->getPrimary()->getStructuredText("headline");
 ?>
 
 
-<section class="highlight content-section">
-  <div class="highlight-left">
-    <?= $highlightTitle->asHtml($prismic->linkResolver); ?>
-    <?= $highlightHeadline->asHtml($prismic->linkResolver); ?>
-    
-    <?php
-      // if there is a button link and button text
-      if ( $slice->getPrimary()->getLink("link") && $slice->getPrimary()->getText("link_label") ) {
-    ?>
-    <p><a href="<?= $slice->getPrimary()->getLink('link')->getUrl($prismic->linkResolver) ?>"><?= $slice->getPrimary()->getText("link_label") ?></a></p>
-    <?php } ?>
+
+<section class="full-width-section">
+  <div class="full-image-container default-bg border-bottom-clear">
+    <img class="to-right-block" src="<?= $slice->getPrimary()->getImage("featured_image")->getUrl() ?>" alt="">
+    <div class="full-image-overlay text-right" style="margin-top: -122px;">
+
+    </div>
   </div>
-  
-  <div class="highlight-right">
-    <img src="<?= $slice->getPrimary()->getImage("featured_image")->getUrl() ?>"/>
+  <div class="full-text-container default-bg border-bottom-clear">
+    <h2 class="mt-4">    <?= $highlightTitle->asHtml($prismic->linkResolver); ?></h2>
+    <div class="separator-2 hidden-lg-down"></div>
+    <p>
+      <?= $highlightHeadline->asHtml($prismic->linkResolver); ?>
+    </p>
+    <div class="separator-3 hidden-lg-down"></div>
+    <a href="mailto:theproject@mail.com" class="btn btn-default">Contact Us <i class="pl-10 fa fa-envelope-o"></i></a>
   </div>
 </section>
